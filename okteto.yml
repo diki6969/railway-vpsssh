@@ -1,8 +1,19 @@
-version: 1
-
-analyzers:
-  - name: docker
-    enabled: true
-
-    meta:
-      dockerfile_paths: ["Dockerfile"]
+version: "3.9"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/self
+      - logvolume01:/var/log
+    working_dir: /self
+    links:
+      - redis
+    restart: always
+  redis:
+    image: redis
+volumes:
+  logvolume01: {}
