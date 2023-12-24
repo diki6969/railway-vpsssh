@@ -9,7 +9,6 @@ services:
     volumes:
       - .:/self
       - logvolume01:/var/log
-    working_dir: /self
     links:
       - redis
     restart: always
