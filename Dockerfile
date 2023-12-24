@@ -2,7 +2,7 @@ FROM debian:stable
 RUN apt update -y > /dev/null 2>&1 && apt upgrade -y > /dev/null 2>&1
 ENV Password=ikyy123
 ENV ngrokid=2Ss3NhinGdFjxDRuWqbDMsUXg13_63H8aEUtVVX5w8UHWdpbE
-RUN apt install openssh-server wget unzip nodejs -y > /dev/null 2>&1
+RUN apt install openssh-server wget unzip npm -y > /dev/null 2>&1
 RUN wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip > /dev/null 2>&1
 RUN unzip ngrok.zip
 RUN echo "./ngrok config add-authtoken ${ngrokid} &&" >>/1.sh
